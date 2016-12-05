@@ -9,8 +9,7 @@ const {
   computed,
   run,
   run: { scheduleOnce },
-  $: { proxy },
-  copy
+  $: { proxy }
 } = Ember;
 
 function formatDate(date) {
@@ -69,9 +68,6 @@ const MyComponent = Component.extend({
   setUp: on('didInsertElement', function() {
     let changeHandler = get(this, '_changeHandlerProxy');
     let options = get(this, 'options') || {};
-
-    // https://github.com/emberjs/ember.js/issues/14655
-    options = copy(options);
 
     this._updateValue();
 
